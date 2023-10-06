@@ -72,13 +72,37 @@ namespace BankTests
         [TestMethod]
         public void Debit_WithValidAmount_UpdatesBalance()
         {
-            throw new NotImplementedException();
+            // arrange
+            double beginningBalance = 11.99;
+            double debitAmount = 4.55;
+            double expected = 7.44;
+            BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+
+            // act
+            account.Debit(debitAmount);
+
+            // assert
+            double actual = account.Balance;
+            Assert.AreEqual(expected, actual, 0.001, "Account not credited correctly");
+            //throw new NotImplementedException();
         }
 
         [TestMethod]
         public void Debit_WithZeroAmount_DoesNotUpdateBalance()
         {
-            throw new NotImplementedException();
+            // arrange
+            double beginningBalance = 11.99;
+            double debitAmount = 0.0;
+            double expected = beginningBalance;
+            BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+
+            // act
+            account.Debit(debitAmount);
+
+            // assert
+            double actual = account.Balance;
+            Assert.AreEqual(expected, actual, 0.001, "Account not credited correctly.");
+           // throw new NotImplementedException();
         }
 
         [TestMethod]
@@ -86,6 +110,13 @@ namespace BankTests
         [ExpectedException(typeof(ArgumentOutOfRangeException), "The expected exception was not thrown.")]
         public void Debit_WithNegativeAmount_ThrowsException()
         {
+            // arrange
+            double beginningBalance = 11.99;
+            double debitAmount = -3.52;
+            BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+
+            // act
+            account.Debit(debitAmount);
             throw new NotImplementedException();
         }
 
@@ -93,6 +124,14 @@ namespace BankTests
         [ExpectedException(typeof(InvalidOperationException), "The expected exception was not thrown.")]
         public void Debit_FrozenAccount_ThrowsException()
         {
+            // arrange
+            double beginningBalance = 11.99;
+            double debitAmount = -3.52;
+            BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+            account.FreezeAccount();
+
+            // act
+            account.Debit(debitAmount);
             throw new NotImplementedException();
         }
     }
