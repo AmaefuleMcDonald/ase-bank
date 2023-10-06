@@ -43,7 +43,7 @@ namespace ase_bank
          * */
         public void Credit(double amount)
         {
-            throw new NotImplementedException();
+            m_balance +=  amount;
         }
 
         public void FreezeAccount()
