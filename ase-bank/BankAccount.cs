@@ -44,11 +44,18 @@ namespace ase_bank
         public void Credit(double amount)
         {
             m_balance +=  amount;
+
+            if (amount < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
         }
 
         public void FreezeAccount()
         {
             m_frozen = true;
+
+            
         }
 
         public void UnfreezeAccount()
