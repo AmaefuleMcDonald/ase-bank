@@ -2,6 +2,9 @@
 
 namespace ase_bank
 {
+    /// <summary>
+    /// This code stores private variables
+    /// </summary>
     public class BankAccount
     {
         private string m_customerName;
@@ -13,7 +16,11 @@ namespace ase_bank
         private BankAccount()
         {
         }
-
+        /// <summary>
+        /// Assigns the variable customername to m_customerName and balance to m_balance.
+        /// </summary>
+        /// <param name="customerName">the variable represents the name of the customer </param>
+        /// <param name="balance">the variable represents the balance of the customer</param>
         public BankAccount(string customerName, double balance)
         {
             m_customerName = customerName;
